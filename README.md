@@ -16,6 +16,7 @@ Further features will be tracked and built in modular stages on the GitHub proje
   - Human-readable message
 
 ### Project Structure (MVC)
+<pre>
 org.eric.guardpost.guardpostapi
 ├── controller
 │   └── EmailValidationController.java
@@ -24,6 +25,7 @@ org.eric.guardpost.guardpostapi
 ├── service
 │   └── EmailValidationService.java
 └── GuardPostApplication.java
+</pre>
 
 ### 🔧 Example API Usage
 
