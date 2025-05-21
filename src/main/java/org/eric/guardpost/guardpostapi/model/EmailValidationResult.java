@@ -1,28 +1,24 @@
 package org.eric.guardpost.guardpostapi.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class EmailValidationResult {
+    /** User input to validate */
+    private String email;
 
-    @Getter @Setter String email;
-    @Getter @Setter private String message;
-    @Getter @Setter private boolean valid;
+    /** Validation results message */
+    private String message;
 
-    //Constructor for Spring
-    public EmailValidationResult() {}
+    /** Boolean true/false depending on validation results */
+    private boolean valid;
 
-    /**
-     *
-     * @param email User input to validate.
-     * @param message Validation results message.
-     * @param valid Boolean true/false depending on validation result.
-     */
 
-    public EmailValidationResult(String email, String message, boolean valid) {
-        this.email = email;
-        this.message = message;
-        this.valid = valid;
-    }
 }
