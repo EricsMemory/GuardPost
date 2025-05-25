@@ -3,7 +3,6 @@
 **GuardPost** is a modular, developer-friendly email validation API built with Java and Spring Boot. It provides fast, clean, and structured email validation for use in web apps, mobile platforms, SaaS tools, and internal systems.
 
 GuardPost is under active development. Phase 1 MVP is functional and live locally.
-Further features will be tracked and built in modular stages on the GitHub project board.
 ---
 
 ## Current Features (MVP)
