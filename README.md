@@ -12,8 +12,14 @@ Further features will be tracked and built in modular stages on the GitHub proje
 - Validates email structure using industry-standard regular expressions
 - Returns JSON with:
   - The original email
+  - Disposable email flag (true / false)
   - Validity flag (true / false)
   - Human-readable message
+ 
+### Disposable Email Detection
+- Detects and blocks throwaway email domains using the [disposable-email-domains](https://github.com/disposable-email-domains/disposable-email-domains) repository for a full list of disposable email domains.
+- Efficient lookup via hashed set comparison
+- Configurable blocklist file (must be populated using the domain list from the linked GitHub repository)
 
 ### Project Structure (MVC)
 <pre>
@@ -23,7 +29,8 @@ org.eric.guardpost.guardpostapi
 ├── model
 │   └── EmailValidationResult.java
 ├── service
-│   └── EmailValidationService.java
+│   ├── EmailValidationService.java
+│   └── DisposableEmailService.java
 └── GuardPostApplication.java
 </pre>
 
@@ -35,13 +42,13 @@ GET /validate?email=test@gmail.com
 **Response:**
 {
   "email": "test@gmail.com",
-  "valid": true,
-  "message": "Email syntax is valid."
+  "message": "Email syntax is valid.",
+  "disposable": false,
+  "valid": true
 }
 
 **Planned Features**
 	•	Domain Validation – DNS + MX record verification
-	•	Disposable Email Detection – Flag throwaway email services
 	•	“Did You Mean?” Suggestions – Typo detection for common domain misspellings
 	•	Bulk Validation – Validate arrays of emails in a single request
  

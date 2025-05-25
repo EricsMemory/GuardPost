@@ -17,6 +17,9 @@ public class EmailValidationResult {
     /** Validation results message */
     private String message;
 
+    /** Disposable check results */
+    private boolean disposable;
+
     /** Boolean true/false depending on validation results */
     private boolean valid;
 
