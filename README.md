@@ -20,6 +20,11 @@ GuardPost is under active development. Phase 1 MVP is functional and live locall
 - Efficient lookup via hashed set comparison
 - Configurable blocklist file (must be populated using the domain list from the linked GitHub repository)
 
+### MX Record Lookup
+- Queuries DNS system to check for valid MX records
+- Returns boolean indicating whether the domain can receive emails or not
+- Validation process catches emails with valid syntax but invalid domains
+
 ### Project Structure (MVC)
 <pre>
 org.eric.guardpost.guardpostapi
@@ -30,6 +35,9 @@ org.eric.guardpost.guardpostapi
 ├── service
 │   ├── EmailValidationService.java
 │   └── DisposableEmailService.java
+    └── MxLookupService.java
+├── util
+│   └── EmailUtils.java
 └── GuardPostApplication.java
 </pre>
 
@@ -42,12 +50,12 @@ GET /validate?email=test@gmail.com
 {
   "email": "test@gmail.com",
   "message": "Email syntax is valid.",
+  "hasMxRecord": true,
   "disposable": false,
   "valid": true
 }
 
 **Planned Features**
-	•	Domain Validation – DNS + MX record verification
 	•	“Did You Mean?” Suggestions – Typo detection for common domain misspellings
 	•	Bulk Validation – Validate arrays of emails in a single request
  
