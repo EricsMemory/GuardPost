@@ -4,7 +4,7 @@ import org.eric.guardpost.guardpostapi.model.EmailValidationResult;
 import org.eric.guardpost.guardpostapi.util.EmailUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.regex.*;
+
 
 @Service
 public class EmailValidationService {
@@ -28,9 +28,9 @@ public class EmailValidationService {
         // Running domain through Mx and disposable checks
         boolean hasMxRecord = domain != null && mxLookupService.hasMxRecord(domain);
         boolean isDisposable = domain != null && disposableEmailService.isDisposable(domain);
-        boolean isValid = syntaxCheck(email) && hasMxRecord && !isDisposable;
+        boolean isValid = EmailUtils.syntaxCheck(email) && hasMxRecord && !isDisposable;
         String message;
-        if (email == null || email.isEmpty() || !syntaxCheck(email)) {
+        if (email == null || email.isEmpty() || !EmailUtils.syntaxCheck(email)) {
             message = "Invalid email syntax";
         } else if (!hasMxRecord) {
             message = "Domain has no MX record";
@@ -43,25 +43,7 @@ public class EmailValidationService {
         return new EmailValidationResult(email, message, hasMxRecord, isDisposable, isValid);
     }
 
-    /**
-     * Creating a separate method to check syntax validity
-     * Boolean requires an email as a parameter
-     * If the email is null or .isEmpty() is true against it, this boolean returns false.
-     * Otherwise, it continues to create a String regex (widely appreciated as email standard),
-     * and returns true only if the email matches the required pattern.
-     */
-    public boolean syntaxCheck(String email){
 
-        // If email is null or empty, return a false boolean
-        if (email == null || email.isEmpty()) {
-            return false;
-        }
-
-        //Regex that email must abide by to be true
-        String regex = "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@" +
-                "(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$";
-        return Pattern.compile(regex, Pattern.CASE_INSENSITIVE).matcher(email).matches();
-    }
 
 
 }
