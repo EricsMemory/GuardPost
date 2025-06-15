@@ -43,7 +43,13 @@ public class EmailValidationService {
         return new EmailValidationResult(email, message, hasMxRecord, isDisposable, isValid);
     }
 
-    /** Creating a separate method to check syntax validity */
+    /**
+     * Creating a separate method to check syntax validity
+     * Boolean requires an email as a parameter
+     * If the email is null or .isEmpty() is true against it, this boolean returns false.
+     * Otherwise, it continues to create a String regex (widely appreciated as email standard),
+     * and returns true only if the email matches the required pattern.
+     */
     public boolean syntaxCheck(String email){
 
         // If email is null or empty, return a false boolean
