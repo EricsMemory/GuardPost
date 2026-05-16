@@ -17,6 +17,9 @@ public class EmailValidationResult {
     /** Validation results message */
     private String message;
 
+    /** Mx record lookup results */
+    private boolean hasMxRecord;
+
     /** Disposable check results */
     private boolean disposable;
 
