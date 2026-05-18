@@ -1,0 +1,11 @@
+2026-05-18T00:06:43.774-04:00  INFO 83383 --- [GuardPost] [main] o.e.g.guardpostapi.GuardPostApplication  : Starting GuardPostApplication using Java 23.0.2 with PID 83383 (/Users/chimera/Desktop/Playground/TestingGrounds/GuardPost/target/classes started by chimera in /Users/chimera/Desktop/Playground/TestingGrounds/GuardPost)
+2026-05-18T00:06:43.775-04:00 DEBUG 83383 --- [GuardPost] [main] o.e.g.guardpostapi.GuardPostApplication  : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-05-18T00:06:43.775-04:00  INFO 83383 --- [GuardPost] [main] o.e.g.guardpostapi.GuardPostApplication  : No active profile set, falling back to 1 default profile: "default"
+2026-05-18T00:06:44.277-04:00  WARN 83383 --- [GuardPost] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: f15774b5-c64f-42d8-99ab-e4cf3f615be3
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-18T00:06:44.340-04:00  INFO 83383 --- [GuardPost] [main] o.e.g.guardpostapi.GuardPostApplication  : Started GuardPostApplication in 0.697 seconds (process running for 0.899)
+2026-05-18T00:06:59.003-04:00  WARN 83383 --- [GuardPost] [http-nio-8080-exec-5] o.e.g.g.service.MxLookupService          : MX lookup failed for domain: jnjas.com - DNS name not found [response code 3]

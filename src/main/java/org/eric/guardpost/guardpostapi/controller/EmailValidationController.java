@@ -23,11 +23,8 @@ public class EmailValidationController {
     @GetMapping("/validate")
     public ResponseEntity<EmailValidationResult> validateEmail(@RequestParam String email) {
         EmailValidationResult result = emailValidationService.validate(email);
-        if (result.isValid()) {
-            return ResponseEntity.ok(result);
-        } else {
-            return ResponseEntity.badRequest().body(result);
-        }
+
+        return ResponseEntity.ok(result);
 
     }
 }

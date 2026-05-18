@@ -1,5 +1,6 @@
 package org.eric.guardpost.guardpostapi.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.naming.directory.Attribute;
@@ -10,8 +11,11 @@ import javax.naming.NamingException;
 
 import java.util.Hashtable;
 
+@Slf4j
 @Service
 public class MxLookupService {
+
+
 
     public MxLookupService() {}
 
@@ -29,8 +33,7 @@ public class MxLookupService {
             return attr != null && attr.size() > 0;
 
         } catch (NamingException e) {
-            System.err.println(e.getMessage());
-            e.printStackTrace();
+            log.warn("MX lookup failed for domain: {} - {}", domain, e.getMessage());
             return false;
         }
     }
